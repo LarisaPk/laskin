@@ -4,7 +4,8 @@ Simple JavaScript calculator made for the JavaScript course.
 TODO:
 - add "."
 - add backspace
-- change "result" into field
+- change "result" into the field and move in to the upper side
+
 - fix bugs: 
     - what happens if number strats from 0 (ex 0007)
     - what happens if operator clicked first
