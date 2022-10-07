@@ -51,7 +51,7 @@ function myFunction(event) {
             default:
                 break
             }
-    // reset the result and variables a, b, operator to initial values         
+    // reset the result and variables to initial values         
     const btn = document.createElement("button");
     const res = document.getElementById("reset");
     res.appendChild(btn);
@@ -65,5 +65,6 @@ function myFunction(event) {
         operator ="";
     })
     }
-  document.getElementById("result").innerHTML = result;
+//get "result" element and set value to the vriable value
+document.getElementById("result").innerHTML = result;    
 }
