@@ -1,61 +1,59 @@
 let result = "";
-let a = null;
-let b = null;
+let a;
+let b;
 let operator;    
 
 let btn = document.getElementById("laskin");
 btn.addEventListener("click", () => myFunction(event));
 
+// when button is clicked
 function myFunction(event) {
-
- //console.log(event.target.innerHTML);
- //console.log(Number(event.target.innerHTML));
-
-  if (!isNaN(Number(event.target.innerHTML))) {
-    //console.log(event.target.innerHTML)
+    // if number is clicked - assign it to result
+    if (!isNaN(Number(event.target.innerHTML))) {
     result = result + event.target.innerHTML;
-
-  }
-
-  else if (isNaN(Number(event.target.innerHTML))) {
-    if (!a) {
-        a = result;
-        console.log("a " + a);
-        result = ""
     }
-    else if (a && !b) {
-        b = result;
-        console.log("b " + b);
-        result = ""
+    // if not number is clicked
+    else if (isNaN(Number(event.target.innerHTML))) {
+        //if there is no first number - assigh result to a
+        if (!a) {
+            a = result;
+            result = ""
+            console.log("a " + a)
+        }
+        if (event.target.innerHTML !== "ENTER") {
+            operator = event.target.innerHTML;
+            console.log("operator " + operator)
+        } 
+        // if there is first number but no second number - assign result to b
+        else if (a && !b) {
+            b = result;
+            result = ""
+            console.log("b " + b)
+        } 
     }
-    if (event.target.innerHTML != "ENTER") {
-    operator = event.target.innerHTML;
-    console.log(operator);
-    } 
-  }
-
-   if (event.target.innerHTML == "ENTER") {
-   // console.log(event.target.innerHTML);
-   // console.log("operator" + operator);
-
-    switch(operator) {
-        case "+":
-            result = Number(a) + Number(b);
-            break;
-        case "+":
-            result = Number(a) - Number(b);
-            break;
-        case "*":
-            result = Number(a) * Number(b);
-            break;
-        case "/":
-            result = Number(a) / Number(b);
-            break;                        
-        default:
-            break
-    }
+    // if ENTER is clicked do calculations depending on operator
+    if (event.target.innerHTML == "ENTER") {
+        console.log("enter")
+        
+        switch(operator) {
+            case "+":
+                result = Number(a) + Number(b);
+                break;
+            case "-":
+                result = Number(a) - Number(b);
+                break;
+            case "*":
+                result = Number(a) * Number(b);
+                break;
+            case "/":
+                result = Number(a) / Number(b);
+                break;                        
+            default:
+                break
+            }
+    // reset the result and variables a, b, operator to initial values         
     const btn = document.createElement("button");
-    const res = document.getElementById("C");
+    const res = document.getElementById("reset");
     res.appendChild(btn);
     btn.innerHTML = "RESET" 
     
@@ -64,7 +62,8 @@ function myFunction(event) {
         a = null;
         b = null;
         result = "";
+        operator ="";
     })
-  }
+    }
   document.getElementById("result").innerHTML = result;
 }
