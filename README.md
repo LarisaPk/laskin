@@ -17,12 +17,12 @@ Click buttons with numbers to incert the first number, then choose operator and 
 Click enter to see the result. 
 RESET button resets the result and calculator can be used again.
 
-## TODO:
+## TODO
 - add "." button
 - add backspace
 - change "result" into the field and move in to the upper side
 
-## fix bugs: 
+## Fix bugs
     - what happens if number strats from 0 (ex 0007)
     - what happens if operator clicked first
     - clicking ENTER multiple times makes RESET button to appear multiple times
